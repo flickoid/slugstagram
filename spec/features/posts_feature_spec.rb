@@ -65,6 +65,22 @@ describe 'deleting posts' do
   end
 end
 
+describe 'showing the the full page of the post' do
+  before do
+    Post.create(description: 'Nudibranch')
+  end
+
+  it 'shows the full page of the post when the link is clicked' do
+    visit '/posts'
+    click_link 'Show post'
+    Nudibranch_id = Post.find_by(description: 'Nudibranch').id
+    expect(current_path).to eq "/posts/#{ Nudibranch_id }"
+    expect(page).to have_content "Nudibranch"
+    click_link 'Back to index'
+    expect(current_path).to eq '/posts'
+  end
+end
+
 
 
 
