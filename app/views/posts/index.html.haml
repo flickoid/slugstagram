@@ -1,2 +1,9 @@
-No posts yet
-=link_to 'Add a post'
+-if @posts.any?
+  - @posts.each do |post|
+    %h2= post.description
+    =link_to 'Edit post', edit_post_path(post)
+
+-else
+  No posts yet
+
+=link_to 'Make a post', new_post_path
