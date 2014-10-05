@@ -51,6 +51,20 @@ describe 'editing posts' do
   end
 end
 
+describe 'deleting posts' do
+
+  before do
+    Post.create(description: "My first nudibranch")
+  end
+
+  it 'removes a post when the user clicks delete post' do
+    visit '/posts'
+    click_link 'Delete post'
+    expect(page).not_to have_content "My first nudibranch"
+    expect(page).to have_content "Post successfully deleted"
+  end
+end
+
 
 
 
