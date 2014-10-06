@@ -6,10 +6,12 @@
     = link_to 'Show post', post_path(post)
     = link_to 'Edit post', edit_post_path(post)
     = link_to 'Delete post', post_path(post), method: :delete
-    = link_to 'Like', post_likes_path(post), method: :post
-    #{post.likes.count} like
-
+    %li
+      = link_to 'Like this post', post_likes_path(post), class: 'likes-link'
+      %span{class:"likes_count"}
+        = "#{pluralize(post.likes.count, 'like')}"
 -else
   No posts yet
 
 = link_to 'Make a post', new_post_path
+
