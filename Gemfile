@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'haml-rails'
+gem 'html2haml'
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'paperclip', '~> 4.2'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -31,6 +35,8 @@ gem 'spring',        group: :development
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password

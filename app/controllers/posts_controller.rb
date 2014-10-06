@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create(params[:post].permit(:description))
+    post = Post.create(params[:post].permit(:description, :image))
     redirect_to posts_path
   end
 
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(params[:post].permit(:description))
+    @post.update(params[:post].permit(:description, :image))
     redirect_to posts_path
   end
 

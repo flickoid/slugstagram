@@ -28,8 +28,10 @@ describe 'creating posts' do
   it 'prompts the user to fill out a form then displays the new post' do
     visit '/posts'
     click_link 'Make a post'
+    attach_file('Image', 'spec/features/nb1.jpg')
     fill_in 'Description', with: "My first nudibranch"
     click_button 'Create post'
+    expect(page).to have_css 'img'
     expect(page).to have_content "My first nudibranch"
     expect(current_path).to eq '/posts'
   end
