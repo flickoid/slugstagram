@@ -3,8 +3,8 @@
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
-  # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = 'a1fd7274cca70bce027c8cf36eefeaa409474b41e5b802ad12c4bb840b1fffd3b8f96abcbaac6c8b8a7279e8932b09860172fb198cc221727caa0f81292d0591'
+  # confirmation, reset password and unlock tokens in the datagit base.
+  config.secret_key = 'a1fd7274cca70bce027c8cf36eefeaa409474b41e5b802ad12c4bb840b1fffd3b8f96abcbaac6c8b8a7279e8932b09860172fb198cc221727caa0f81292d0591'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -233,7 +233,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook, Rails.application.secrets.facebook_app_id, Rails.application.secrets.facebook_app_secret
+  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

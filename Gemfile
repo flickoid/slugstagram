@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+group :development, :test do
+  gem 'dotenv-rails'
+end
+
 gem 'haml-rails'
 gem 'html2haml'
 gem 'devise'
