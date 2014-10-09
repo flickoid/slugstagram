@@ -5,7 +5,11 @@ describe 'likes' do
   before do
     chris = create(:chris)
     login_as(chris, :scope => :user)
-    Post.create(description: "My first nudibranch")
+    visit '/posts'
+    click_link 'Make a post'
+    attach_file('Image', 'spec/features/nb1.jpg')
+    fill_in 'Description', with: "Nudibranch"
+    click_button 'Create post'
   end
 
   it 'can like a post, updating the like count', js: true do
